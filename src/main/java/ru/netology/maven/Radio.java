@@ -1,66 +1,74 @@
 package ru.netology.maven;
 
-    public class Radio {
-        public int currentStation;
-        public int currentVolume;
+public class Radio {
+    protected int currentStation;
+    protected int currentVolume;
 
-        public int getCurrentStation() {
-            return currentStation;
-        }
-        public int getCurrentVolume() {
-            return currentVolume;
-        }
+    public int getCurrentStation() {
+        return currentStation;
+    }
 
-        public void setCurrentStation(int newCurrentStation) {
-            if (newCurrentStation < 0) {
-                newCurrentStation = 9;
-                return;
-            }
-            if (newCurrentStation > 9) {
-                return;
-            }
-            currentStation = newCurrentStation;
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
 
+    public void setCurrentStation(int currentStation) {
+        if (currentStation < 0) {
+            return;
         }
 
-        public void setCurrentVolume(int newCurrentVolume) {
-            if (newCurrentVolume < 0) {
-                return;
-            }
-            if (newCurrentVolume > 10) {
-                return;
-
-            }
-            currentVolume = newCurrentVolume;
-
+        if (currentStation > 9) {
+            return;
         }
-
-        public void increaseStation() {
-            if (currentStation < 9) {
-                currentStation = currentStation + 1;
-            }
-        }
-
-        public void increaseVolume() {
-            if (currentVolume < 10) {
-                currentVolume = currentVolume + 1;
-            }
-        }
-
-
-        public void setMaxStation() {
-            currentStation = 9;
-        }
-
-        public void setMinStation() {
-            currentStation = 0;
-        }
-        public void setMaxVolume() {
-            currentVolume = 10;
-        }
-
-        public void setMinVolume() {
-            currentVolume = 0;
-        }
+        this.currentStation = currentStation;
 
     }
+
+    public void next() {
+        if (currentStation < 9) {
+            currentStation = currentStation + 1;
+            return;
+        } else {
+            currentStation = 0;
+        }
+    }
+
+    public void prev() {
+        if (currentStation > 0) {
+            currentStation = currentStation - 1;
+        } else {
+            currentStation = 9;
+        }
+    }
+
+
+    public void increaseVolume() {
+        if (currentVolume < 10) {
+            currentVolume = currentVolume + 1;
+
+        }
+    }
+
+
+    public void setMaxStation() {
+        currentStation = 9;
+    }
+
+    public void setMinStation() {
+        currentStation = 0;
+    }
+
+    public void currentVolume(int currentVolume) {
+        if (currentVolume < 0) {
+            return;
+        }
+        if (currentVolume > 10) {
+            return;
+
+        }
+        this.currentVolume = currentVolume;
+
+    }
+}
+
+
