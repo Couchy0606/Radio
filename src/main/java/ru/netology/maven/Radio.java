@@ -3,6 +3,20 @@ package ru.netology.maven;
 public class Radio {
     protected int currentStation;
     protected int currentVolume;
+    protected int maxStation;
+    protected int minStation;
+
+    public Radio() {
+        maxStation = 9;
+        minStation = 0;
+
+    }
+
+    public Radio(int stationCount) {
+        maxStation = stationCount - 1;
+
+    }
+
 
     public int getCurrentStation() {
         return currentStation;
@@ -13,11 +27,11 @@ public class Radio {
     }
 
     public void setCurrentStation(int currentStation) {
-        if (currentStation < 0) {
+        if (currentStation < minStation) {
             return;
         }
 
-        if (currentStation > 9) {
+        if (currentStation > maxStation) {
             return;
         }
         this.currentStation = currentStation;
@@ -25,25 +39,25 @@ public class Radio {
     }
 
     public void next() {
-        if (currentStation < 9) {
+        if (currentStation < maxStation) {
             currentStation = currentStation + 1;
             return;
         } else {
-            currentStation = 0;
+            currentStation = minStation;
         }
     }
 
     public void prev() {
-        if (currentStation > 0) {
+        if (currentStation > minStation) {
             currentStation = currentStation - 1;
         } else {
-            currentStation = 9;
+            currentStation = maxStation;
         }
     }
 
 
     public void increaseVolume() {
-        if (currentVolume < 10) {
+        if (currentVolume < 100) {
             currentVolume = currentVolume + 1;
 
         }
@@ -51,18 +65,18 @@ public class Radio {
 
 
     public void setMaxStation() {
-        currentStation = 9;
+        currentStation = maxStation;
     }
 
     public void setMinStation() {
-        currentStation = 0;
+        currentStation = minStation;
     }
 
     public void currentVolume(int currentVolume) {
         if (currentVolume < 0) {
             return;
         }
-        if (currentVolume > 10) {
+        if (currentVolume > 100) {
             return;
 
         }
@@ -70,5 +84,3 @@ public class Radio {
 
     }
 }
-
-
