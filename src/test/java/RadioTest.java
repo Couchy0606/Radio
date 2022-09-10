@@ -5,6 +5,19 @@ import ru.netology.maven.Radio;
 public class RadioTest {
 
     @Test
+    public void shouldCountStation() {
+        Radio stat = new Radio(10);
+
+        stat.setCurrentStation(6);
+
+        int expected = 6;
+        int actual = stat.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+
+    @Test
     public void shouldSetStation() {
         Radio stat = new Radio();
 
@@ -106,9 +119,9 @@ public class RadioTest {
     public void shouldSetVolume() {
         Radio vol = new Radio();
 
-        vol.currentVolume(10);
+        vol.currentVolume(100);
 
-        int expected = 10;
+        int expected = 100;
         int actual = vol.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -118,7 +131,7 @@ public class RadioTest {
     public void shouldNotSetVolumeAboveMax() {
         Radio vol = new Radio();
 
-        vol.currentVolume(20);
+        vol.currentVolume(200);
 
 
         int expected = 0;
@@ -181,5 +194,3 @@ public class RadioTest {
 
 
 }
-
-
