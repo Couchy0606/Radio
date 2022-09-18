@@ -141,19 +141,6 @@ public class RadioTest {
     }
 
 
-    @Test
-    public void shouldIncreaseVolumeByOne() {
-        Radio vol = new Radio();
-        vol.currentVolume(2);
-
-        vol.increaseVolume();
-
-        int expected = 3;
-        int actual = vol.getCurrentVolume();
-
-        Assertions.assertEquals(expected, actual);
-    }
-
 
     @Test
     public void shouldSetMaxStation() {

@@ -42,15 +42,7 @@ public class Radio {
     }
 
 
-    public void increaseVolume() {
-        if (currentVolume < 10) {
-            currentVolume = currentVolume + 1;
-
-        }
-    }
-
-
-    public void setMaxStation() {
+     public void setMaxStation() {
         currentStation = 9;
     }
 
@@ -69,6 +61,7 @@ public class Radio {
         this.currentVolume = currentVolume;
 
     }
+
 }
 
 
